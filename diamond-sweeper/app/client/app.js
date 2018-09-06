@@ -71,22 +71,22 @@ global.startApp = function(container) {
   function cornerCases(dSquares, clickedId, direction) {
     var top = clickedId - 8;
     var bottom = clickedId + 8;
-    console.log(direction);
+
     if (direction === "left") {
       var topRight = top + 1; //Top Right
       var middleRight = clickedId + 1; // Right cell
       var bottomRight = bottom + 1; // Bottim Right
-      //Checking for the presence of diamonds in adjacent cells. Since the edge cell, only one side is checked
+      //Checking for the presence  diamonds in adjacent cells. Since the edge cell, only one side is checked
       if (dSquares.indexOf(middleRight) >= 0) {
         return "right";
       } else if (dSquares.indexOf(top) >= 0) {
         return "up";
       } else if (dSquares.indexOf(topRight) >= 0) {
-        return "bottom-left";
+        return "bottom-right";
       } else if (dSquares.indexOf(bottom) >= 0) {
         return "down";
       } else if (dSquares.indexOf(bottomRight) >= 0) {
-        return "top-left";
+        return "top-right";
       }
     } else {
       var topLeft = top - 1; //Top Left
