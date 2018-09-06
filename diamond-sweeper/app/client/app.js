@@ -16,14 +16,16 @@ global.startApp = function(container) {
       .removeClass("arrow diamond");
   }
 
+  //Generate diamond squares
   function genDiamondSquare() {
     var dArr = [];
-    for (var i = 0; i < 7; i++) {
+    while (dArr.length <= 7) {
       var rand = Math.round(Math.random() * 63);
-      if (!$.inArray(rand, dArr)) {
+      if ($.inArray(rand, dArr) === -1) {
         dArr.push(rand);
       }
     }
+
     return dArr;
   }
   function bindEvent() {}

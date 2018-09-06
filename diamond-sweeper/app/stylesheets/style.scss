@@ -1,10 +1,16 @@
 table.diamondsweeper-board {
+  margin: 0 auto;
   td {
     padding: 0;
     border: 1px solid black;
   }
 }
-
+.button,
+.messages,
+.alert {
+  margin: 0 auto;
+  text-align: center;
+}
 .cell {
   height: 50px;
   width: 50px;
@@ -12,13 +18,33 @@ table.diamondsweeper-board {
 
   &.diamond {
     background-image: url(diamond.png);
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.21s ease-in;
+    transition: all 0.2s ease-in;
   }
 
   &.arrow {
     background-image: url(arrow.png);
+    &.left {
+      transform: rotate(180deg);
+    }
+    &.up {
+      transform: rotate(270deg);
+    }
+    &.down {
+      transform: rotate(90deg);
+    }
   }
 
   &.unknown {
     background-image: url(question.png);
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+  .cell {
+    height: 30px;
+    width: 30px;
+    background-size: 30px 30px;
   }
 }

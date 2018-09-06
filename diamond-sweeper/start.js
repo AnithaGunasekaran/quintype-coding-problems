@@ -1,6 +1,5 @@
 const express = require("express");
 
-const compiler = webpack(webpackConfig);
 const app = express();
 
 app.set("view engine", "ejs");
