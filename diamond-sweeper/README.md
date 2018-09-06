@@ -18,7 +18,7 @@ The rules of the game are as follows:
 Part II of this problem adds the ability to add hints to empty squares
 
 - When the user clicks on a square
-  - If the square was not a diamond, then an arrow appears, pointing towards the nearest diamond. This applies only to the adjacent cells in the 3x3 matrix. For edge cases, this becomes a 2x3 matrixs
+  - If the square was not a diamond, then an arrow appears, pointing towards the nearest diamond. This applies only to the adjacent cells in the 3x3 matrix. For edge cases, this becomes a 2x3 matrix
   - Any arrows that were previously show become hidden
 
 ## Starter App
