@@ -1,99 +1,231 @@
 <html>
-  <head>
-    <title>Quintype App</title>
-    <link rel="stylesheet" href="/assets/style.css" type="text/css"/>
-    <script type="text/javascript" src="/assets/app.js"></script>
-  </head>
-  <body>
-    <div id="container">
-      <div>
-        <div class="messages"></div>
-        <table class="diamondsweeper-board">
-          <tbody>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell diamond"></div></td>
-              <td><div class="cell unknown"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell diamond"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell diamond"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell arrow"></div></td>
-              <td><div class="cell unknown"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell diamond"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-            </tr>
-            <tr>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell unknown"></div></td>
-              <td><div class="cell"></div></td>
-              <td><div class="cell"></div></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+<head>
+  <title>Quintype App</title>
+  <link rel="stylesheet" href="/assets/style.css" type="text/css" />
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/assets/app.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div>
+      <div class="messages"></div>
+      <table class="diamondsweeper-board">
+        <tbody>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell diamond"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell diamond"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell diamond"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell arrow"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell diamond"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell unknown"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+            <td>
+              <div class="cell"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <script type="text/javascript">startApp(document.getElementById("container"));</script>
-  </body>
+  </div>
+  <script type="text/javascript">startApp(document.getElementById("container"));</script>
+</body>
+
 </html>
