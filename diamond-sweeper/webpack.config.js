@@ -3,6 +3,7 @@ const process = require("process");
 const path = require("path");
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const PUBLIC_PATH = "/assets/";
 const OUTPUT_DIRECTORY = __dirname + `/public/${PUBLIC_PATH}`;
@@ -46,5 +47,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin({ filename: "[name].css", allChunks: true })]
+
+  plugins: [
+    new ExtractTextPlugin({ filename: "[name].css", allChunks: true }),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /[name].min\.js$/,
+      minimize: true
+    })
+  ]
 };

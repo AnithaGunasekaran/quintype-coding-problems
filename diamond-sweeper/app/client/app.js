@@ -9,7 +9,7 @@ global.startApp = function(container) {
   var leftEdges = [0, 8, 16, 24, 32, 40, 48, 56];
 
   $(document).ready(function() {
-    //Reset all squares to have "?" marks
+    $("#score").text(score);
     resetSquares();
   });
 
@@ -38,6 +38,7 @@ global.startApp = function(container) {
         $(this).addClass("arrow " + direction);
       }
     }
+
     $(this).removeClass("unknown");
 
     //Update score
@@ -58,7 +59,6 @@ global.startApp = function(container) {
   function resetSquares() {
     $(".diamondsweeper-board td a").each(function(index) {
       //Add bg color for testing.
-      console.log(index);
       if (dSquares.indexOf(index) >= 0) {
         $(this).css("background-color", "yellow");
       }
@@ -70,36 +70,39 @@ global.startApp = function(container) {
   //Helper function to take care of the logic when user clicks on corner cells
   function cornerCases(dSquares, clickedId, direction) {
     var top = clickedId - 8;
-    var bot = clickedId + 8;
+    var bottom = clickedId + 8;
+    console.log(direction);
     if (direction === "left") {
       var topRight = top + 1; //Top Right
       var middleRight = clickedId + 1; // Right cell
-      var botRight = bot + 1; // Bottim Right
+      var bottomRight = bottom + 1; // Bottim Right
       //Checking for the presence of diamonds in adjacent cells. Since the edge cell, only one side is checked
       if (dSquares.indexOf(middleRight) >= 0) {
         return "right";
-      } else if (
-        dSquares.indexOf(top) >= 0 ||
-        dSquares.indexOf(topRight) >= 0
-      ) {
+      } else if (dSquares.indexOf(top) >= 0) {
         return "up";
-      } else if (
-        dSquares.indexOf(bot) >= 0 ||
-        dSquares.indexOf(botRight) >= 0
-      ) {
+      } else if (dSquares.indexOf(topRight) >= 0) {
+        return "bottom-left";
+      } else if (dSquares.indexOf(bottom) >= 0) {
         return "down";
+      } else if (dSquares.indexOf(bottomRight) >= 0) {
+        return "top-left";
       }
     } else {
       var topLeft = top - 1; //Top Left
       var middleLeft = clickedId - 1; //Middle Left
-      var botLeft = bot - 1; // Bottom left
+      var bottomLeft = bottom - 1; // Bottom left
 
       if (dSquares.indexOf(middleLeft) >= 0) {
         return "left";
-      } else if (dSquares.indexOf(top) >= 0 || dSquares.indexOf(topLeft) >= 0) {
+      } else if (dSquares.indexOf(top) >= 0) {
         return "up";
-      } else if (dSquares.indexOf(bot) >= 0 || dSquares.indexOf(botLeft) >= 0) {
+      } else if (dSquares.indexOf(bottom) >= 0) {
         return "down";
+      } else if (dSquares.indexOf(topLeft) >= 0) {
+        return "bottom-left";
+      } else if (dSquares.indexOf(bottomLeft) >= 0) {
+        return "top-left";
       }
     }
     return;
@@ -117,28 +120,27 @@ global.startApp = function(container) {
     var middleRight = clickedId + 1;
 
     //Get adjacent cells in botom row
-    var bot = clickedId + 8;
-    var botleft = bot - 1;
-    var botright = bot + 1;
+    var bottom = clickedId + 8;
+    var bottomLeft = bottom - 1;
+    var bottomRight = bottom + 1;
 
     if (dSquares.indexOf(middleRight) >= 0) {
       return "right";
     } else if (dSquares.indexOf(middleLeft) >= 0) {
       return "left";
-    } else if (
-      dSquares.indexOf(topLeft) >= 0 ||
-      dSquares.indexOf(top) >= 0 ||
-      dSquares.indexOf(topRight) >= 0
-    ) {
+    } else if (dSquares.indexOf(topRight) >= 0) {
+      return "bottom-right";
+    } else if (dSquares.indexOf(topLeft) >= 0) {
+      return "bottom-left";
+    } else if (dSquares.indexOf(top) >= 0) {
       return "up";
-    } else if (
-      dSquares.indexOf(botleft) >= 0 ||
-      dSquares.indexOf(bot) >= 0 ||
-      dSquares.indexOf(botright) >= 0
-    ) {
+    } else if (dSquares.indexOf(bottomRight) >= 0) {
+      return "top-right";
+    } else if (dSquares.indexOf(bottomLeft) >= 0) {
+      return "top-left";
+    } else if (dSquares.indexOf(bottom) >= 0) {
       return "down";
     }
-
     return;
   }
 
@@ -154,5 +156,10 @@ global.startApp = function(container) {
 
     return dArr;
   }
-  function bindEvent() {}
+
+  $("#save").click(function() {
+    localStorage.setItem("clickedSquare", clickedSquares);
+    localStorage.setItem("score", score);
+    localStorage.setItem("diamonds", dSquares);
+  });
 };

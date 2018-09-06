@@ -36,6 +36,26 @@ table.diamondsweeper-board {
     &.down {
       transform: rotate(90deg);
     }
+    &.arrow.top-left {
+      -ms-transform: rotate(135deg); /* IE 9 */
+      -webkit-transform: rotate(135deg); /* Safari 3-8 */
+      transform: rotate(135deg);
+    }
+    &.arrow.top-right {
+      -ms-transform: rotate(45deg); /* IE 9 */
+      -webkit-transform: rotate(45deg); /* Safari 3-8 */
+      transform: rotate(45deg);
+    }
+    &.arrow.bottom-left {
+      -ms-transform: rotate(235deg); /* IE 9 */
+      -webkit-transform: rotate(235deg); /* Safari 3-8 */
+      transform: rotate(235deg);
+    }
+    &.arrow.bottom-right {
+      -ms-transform: rotate(-45deg); /* IE 9 */
+      -webkit-transform: rotate(-45deg); /* Safari 3-8 */
+      transform: rotate(-45deg);
+    }
   }
 
   &.unknown {
