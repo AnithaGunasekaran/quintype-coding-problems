@@ -1,7 +1,7 @@
 global.startApp = function(container) {
   console.log("Here is the container:", container);
 
-  //Globals
+  //Globals for the game and not for the entire application
   var score = 64;
   var clickedSquares = [];
   var dSquares = genDiamondSquare();
@@ -16,16 +16,16 @@ global.startApp = function(container) {
   $(".diamondsweeper-board td a").bind("click", function() {
     var clickedId = Number($(this).attr("data-cellid"));
     var indexOfDiamond = dSquares.indexOf(clickedId);
-    clickedSquares.push(clickedId); // to store the progress
+    clickedSquares.push(clickedId); // to store the progress. Would be ideal to store in localStorage
 
     $("td a").removeClass("arrow");
 
     if (indexOfDiamond >= 0) {
       //User has clicked on diamond square.
       $(this).addClass("diamond");
-      dSquares.splice(indexOfDiamond, 1); //Removing the diamond square from the array
+      dSquares.splice(indexOfDiamond, 1); //Removing the diamond square number from the array
     } else {
-      //Logic to decide the direction of arrow
+      //Logic to decide the direction of arrow if a diamond cell is available nearby
       var direction;
       if (leftEdges.indexOf(clickedId) >= 0) {
         direction = cornerCases(dSquares, clickedId, "left"); //Edge case
@@ -47,7 +47,7 @@ global.startApp = function(container) {
 
     $(this).off("click"); //Unbind click event on a clicked cell
 
-    //No more diamonds left. Game over
+    //No more diamonds left. Game over. Disabling clicks on the board.
     if (dSquares.length === 0) {
       $(".alert")
         .text("Game Over")
@@ -58,11 +58,6 @@ global.startApp = function(container) {
 
   function resetSquares() {
     $(".diamondsweeper-board td a").each(function(index) {
-      //Add bg color for testing.
-      if (dSquares.indexOf(index) >= 0) {
-        $(this).css("background-color", "yellow");
-      }
-      //Add cell index
       $(this).attr("data-cellid", index);
     });
   }
