@@ -10,10 +10,16 @@ global.startApp = function(container) {
 
   $(".diamondsweeper-board").delegate("td", "click", function() {});
 
-  function resetSquares() {
-    $(".diamondsweeper-board td div")
-      .addClass("unknown")
-      .removeClass("arrow diamond");
+  function resetSquares(dSquares, clickedSquares) {
+    $this = $(".diamondsweeper-board td a");
+    $this.each(function(index) {
+      //Add bg color for testing.
+      if (dSquares.indexOf(index) >= 0) {
+        $(this).css("background-color", "yellow");
+      }
+      //Add cell index
+      $(this).attr("data-cellid", index);
+    });
   }
 
   //Generate diamond squares
